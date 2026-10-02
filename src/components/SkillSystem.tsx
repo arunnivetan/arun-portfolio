@@ -19,6 +19,24 @@ export const SkillSystem: React.FC = () => {
 
   const certificates: CertificateModalData[] = [
     {
+      title: "NSIC — PCB Design Certificate",
+      sub: "Embedded Systems & Multi-layer PCB Layout",
+      certNo: "052026",
+      issuer: "NSIC Technical Services Centre (Govt. of India)",
+      hours: "15 Days Internship",
+      imageSrc: "/assets/nsic_pcb_certificate.jpg",
+      tags: ['PCB Design', 'Schematics', 'Proteus', 'Hardware Troubleshooting']
+    },
+    {
+      title: "Fibercat Technology — Internship Certificate",
+      sub: "Enterprise Application & SQL Development",
+      certNo: "FC-INT-2024",
+      issuer: "Fibercat Technology Private Limited",
+      hours: "15 Days Internship",
+      imageSrc: "/assets/fibercat_certificate.jpg",
+      tags: ['Oracle APEX', 'SQL Queries', 'Web Development', 'Agile']
+    },
+    {
       title: "ETAP — Basic & Advanced",
       sub: "Power System Modeling & Analysis",
       certNo: "SSA33603",

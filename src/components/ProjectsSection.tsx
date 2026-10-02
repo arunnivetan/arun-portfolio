@@ -135,6 +135,20 @@ export const ProjectsSection: React.FC = () => {
                         </div>
                       </div>
                     )}
+
+                    {/* Vasavi CRM EDII IVP Letter */}
+                    {project.id === 'vasavi-crm' && (
+                      <div className="rounded-xl overflow-hidden border border-[#17130F]/10 mt-2 bg-[#EEE8DE]">
+                        <img
+                          src="/assets/edii_ivp_letter.png"
+                          alt="EDII Tamil Nadu — Innovation Voucher Program Official Communication"
+                          className="w-full h-48 object-cover object-top"
+                        />
+                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C]">
+                          EDII Tamil Nadu — Innovation Voucher Program Screening (Sri Vasavi Proposal)
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Right side achievement highlight box */}

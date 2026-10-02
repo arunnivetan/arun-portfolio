@@ -10,6 +10,12 @@ const INTERNSHIP_PHOTOS: Record<string, { src: string; caption: string }[]> = {
   'aswin-solar': [
     { src: '/assets/solar_pv_rooftop.jpg', caption: '30 kW Rooftop Solar PV Installation — Vadapalani Temple, Chennai' },
     { src: '/assets/aswin_solar_training.jpg', caption: 'Team with Aswin Solar Engineers — On-site Training Session' }
+  ],
+  'nsic': [
+    { src: '/assets/nsic_pcb_certificate.jpg', caption: 'Official Internship Certificate — NSIC Technical Services Centre (Govt. of India)' }
+  ],
+  'fibercat': [
+    { src: '/assets/fibercat_certificate.jpg', caption: 'Official Internship Certificate — Fibercat Technology Private Limited' }
   ]
 };
 
