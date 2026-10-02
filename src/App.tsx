@@ -9,6 +9,7 @@ import { SkillSystem } from './components/SkillSystem';
 import { EngineeringJourney } from './components/EngineeringJourney';
 import { AchievementsSection } from './components/AchievementsSection';
 import { BeyondResume } from './components/BeyondResume';
+import { CampusEngagement } from './components/CampusEngagement';
 import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -53,11 +54,14 @@ export function App() {
         {/* Section 08: Engineering Journey Timeline */}
         <EngineeringJourney />
 
-        {/* Section 09: Achievements */}
-        <AchievementsSection />
-
         {/* Section 10: Beyond The Resume */}
         <BeyondResume />
+
+        {/* Campus Engagement */}
+        <CampusEngagement />
+
+        {/* Section 09: Achievements */}
+        <AchievementsSection />
 
         {/* Section 11: Resume Download Call to Action */}
         <ResumeSection onOpenResume={() => setIsResumeOpen(true)} />
