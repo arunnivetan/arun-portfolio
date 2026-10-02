@@ -15,6 +15,7 @@ import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
+import { ScrollReveal } from './components/ScrollReveal';
 
 export function App() {
   const [activeSignal, setActiveSignal] = useState<'power' | 'control' | 'renewable' | 'all'>('all');
@@ -38,40 +39,64 @@ export function App() {
         />
 
         {/* Section 01: Who I Am */}
-        <AboutSection />
+        <ScrollReveal>
+          <AboutSection />
+        </ScrollReveal>
 
         {/* Section 02: How I Think */}
-        <EngineeringProcess />
+        <ScrollReveal>
+          <EngineeringProcess />
+        </ScrollReveal>
 
         {/* Section 03: Projects Dossiers */}
-        <ProjectsSection />
+        <ScrollReveal>
+          <ProjectsSection />
+        </ScrollReveal>
 
         {/* Section 04: Industrial & Internships Exposure */}
-        <IndustrialExposure />
+        <ScrollReveal>
+          <IndustrialExposure />
+        </ScrollReveal>
 
         {/* Section 05: Skill Dashboard */}
-        <SkillSystem />
+        <ScrollReveal>
+          <SkillSystem />
+        </ScrollReveal>
 
         {/* Section 06: Dedicated Certifications Page Section */}
-        <CertificatesSection />
+        <ScrollReveal>
+          <CertificatesSection />
+        </ScrollReveal>
 
         {/* Section 08: Engineering Journey Timeline */}
-        <EngineeringJourney />
+        <ScrollReveal>
+          <EngineeringJourney />
+        </ScrollReveal>
 
         {/* Section 10: Beyond The Resume */}
-        <BeyondResume />
+        <ScrollReveal>
+          <BeyondResume />
+        </ScrollReveal>
 
         {/* Campus Engagement */}
-        <CampusEngagement />
+        <ScrollReveal>
+          <CampusEngagement />
+        </ScrollReveal>
 
         {/* Section 09: Achievements */}
-        <AchievementsSection />
+        <ScrollReveal>
+          <AchievementsSection />
+        </ScrollReveal>
 
         {/* Section 11: Resume Download Call to Action */}
-        <ResumeSection onOpenResume={() => setIsResumeOpen(true)} />
+        <ScrollReveal>
+          <ResumeSection onOpenResume={() => setIsResumeOpen(true)} />
+        </ScrollReveal>
 
         {/* Section 12: Contact */}
-        <ContactSection />
+        <ScrollReveal>
+          <ContactSection />
+        </ScrollReveal>
       </main>
 
       {/* Footer */}
