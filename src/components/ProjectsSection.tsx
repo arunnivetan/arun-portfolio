@@ -122,43 +122,44 @@ export const ProjectsSection: React.FC = () => {
                       </div>
                     )}
 
-                    {/* SpaceCraft AI Pitch Photo */}
+                    {/* SpaceCraft AI Pitch Photo & EDII IVP Letter */}
                     {project.id === 'spacecraft-ai' && (
-                      <div className="rounded-xl overflow-hidden border border-[#17130F]/10 mt-2">
-                        <img
-                          src="/assets/spacecraft_pitch.jpg"
-                          alt="SpaceCraft AI — EDII Pitch Presentation"
-                          className="w-full h-40 object-cover object-center"
-                        />
-                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C]">
-                          EDII Pitch Presentation — SpaceCraft AI Demo
+                      <div className="space-y-3 mt-2">
+                        <div className="rounded-xl overflow-hidden border border-[#17130F]/10">
+                          <img
+                            src="/assets/spacecraft_pitch.jpg"
+                            alt="SpaceCraft AI — EDII Pitch Presentation"
+                            className="w-full h-40 object-cover object-center"
+                          />
+                          <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C]">
+                            EDII Pitch Presentation — SpaceCraft AI Demo
+                          </div>
+                        </div>
+
+                        <div className="rounded-xl overflow-hidden border border-[#17130F]/15 bg-[#17130F] p-2 group relative">
+                          <a href="/assets/edii_ivp_letter.png" target="_blank" rel="noopener noreferrer">
+                            <img
+                              src="/assets/edii_ivp_letter.png"
+                              alt="EDII Tamil Nadu — Innovation Voucher Program Official Communication"
+                              className="w-full h-auto max-h-[380px] object-contain rounded transition-transform group-hover:scale-[1.01]"
+                            />
+                          </a>
+                          <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C] flex items-center justify-between mt-2 rounded">
+                            <span>EDII Tamil Nadu — Innovation Voucher Program Screening</span>
+                            <a 
+                              href="/assets/edii_ivp_letter.png" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="font-bold text-[#D92D20] hover:underline"
+                            >
+                              VIEW FULL EMAIL →
+                            </a>
+                          </div>
                         </div>
                       </div>
                     )}
 
-                    {/* Vasavi CRM EDII IVP Letter */}
-                    {project.id === 'vasavi-crm' && (
-                      <div className="rounded-xl overflow-hidden border border-[#17130F]/15 mt-3 bg-[#17130F] p-2 group relative">
-                        <a href="/assets/edii_ivp_letter.png" target="_blank" rel="noopener noreferrer">
-                          <img
-                            src="/assets/edii_ivp_letter.png"
-                            alt="EDII Tamil Nadu — Innovation Voucher Program Official Communication"
-                            className="w-full h-auto max-h-[400px] object-contain rounded transition-transform group-hover:scale-[1.01]"
-                          />
-                        </a>
-                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C] flex items-center justify-between mt-2 rounded">
-                          <span>EDII Tamil Nadu — Innovation Voucher Program Communication</span>
-                          <a 
-                            href="/assets/edii_ivp_letter.png" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="font-bold text-[#D92D20] hover:underline"
-                          >
-                            VIEW FULL EMAIL →
-                          </a>
-                        </div>
-                      </div>
-                    )}
+
                   </div>
 
                   {/* Right side achievement highlight box */}
