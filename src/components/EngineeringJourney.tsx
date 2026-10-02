@@ -53,9 +53,17 @@ export const EngineeringJourney: React.FC = () => {
     },
     {
       year: "2026",
+      title: "AUTOCAD ELECTRICAL CERTIFICATION",
+      subtitle: "Sarva Sudarsanaa Academy (ISO 9001:2015 Certified)",
+      desc: "Completed 60 hours professional certification program in AutoCAD Electrical CAD (Certificate No: SSA73713). Mastered schematic generation, ladder diagrams, component drafting, and panel layout design.",
+      icon: <Zap className="w-5 h-5 text-[#E53935]" />,
+      badge: "AUTOCAD CERTIFIED"
+    },
+    {
+      year: "2026",
       title: "ETAP POWER SYSTEM MODELING",
-      subtitle: "ETAP Simulation Projects",
-      desc: "Modeled single-line diagrams in ETAP, executing Load Flow Analysis, Short Circuit Studies, and Arc Flash hazard evaluations.",
+      subtitle: "Sarva Sudarsanaa Academy (Basic & Advanced)",
+      desc: "Completed 60 hours certified training in ETAP Basic & Advanced (Certificate No: SSA33603). Modeled single-line diagrams in ETAP, executing Load Flow Analysis, Short Circuit Studies, and Arc Flash hazard evaluations.",
       icon: <Zap className="w-5 h-5 text-[#1976D2]" />,
       badge: "ETAP CERTIFIED"
     },
