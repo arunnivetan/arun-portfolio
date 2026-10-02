@@ -71,7 +71,9 @@ export const CampusEngagement: React.FC = () => {
                   <img
                     src={card.image}
                     alt={card.alt}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+                      card.id === 'creative' ? 'object-center' : 'object-top'
+                    }`}
                   />
                   <div className="absolute top-3 left-3 bg-[#17130F]/80 backdrop-blur-xs text-white font-mono-tech text-[10px] font-bold px-2.5 py-1 rounded border border-white/20 flex items-center gap-1.5">
                     {card.icon}
