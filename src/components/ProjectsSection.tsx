@@ -96,16 +96,30 @@ export const ProjectsSection: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pt-2">
-                  <div className="lg:col-span-7 space-y-2">
+                  <div className="lg:col-span-7 space-y-3">
                     <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#17130F]">
                       {project.title}
                     </h3>
                     <p className="font-heading text-sm font-semibold text-[#D92D20]">
                       {project.subtitle}
                     </p>
-                    <p className="text-sm text-[#6C645C] leading-relaxed pt-1">
+                    <p className="text-sm text-[#6C645C] leading-relaxed">
                       {project.description}
                     </p>
+
+                    {/* SpaceCraft AI Pitch Photo */}
+                    {project.id === 'spacecraft-ai' && (
+                      <div className="rounded-xl overflow-hidden border border-[#17130F]/10 mt-2">
+                        <img
+                          src="/assets/spacecraft_pitch.jpg"
+                          alt="SpaceCraft AI — EDII Pitch Presentation"
+                          className="w-full h-40 object-cover object-center"
+                        />
+                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C]">
+                          EDII Pitch Presentation — SpaceCraft AI Demo
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Right side achievement highlight box */}
