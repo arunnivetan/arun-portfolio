@@ -6,6 +6,7 @@ import { EngineeringProcess } from './components/EngineeringProcess';
 import { ProjectsSection } from './components/ProjectsSection';
 import { IndustrialExposure } from './components/IndustrialExposure';
 import { SkillSystem } from './components/SkillSystem';
+import { CertificatesSection } from './components/CertificatesSection';
 import { EngineeringJourney } from './components/EngineeringJourney';
 import { AchievementsSection } from './components/AchievementsSection';
 import { BeyondResume } from './components/BeyondResume';
@@ -50,6 +51,9 @@ export function App() {
 
         {/* Section 05: Skill Dashboard */}
         <SkillSystem />
+
+        {/* Section 06: Dedicated Certifications Page Section */}
+        <CertificatesSection />
 
         {/* Section 08: Engineering Journey Timeline */}
         <EngineeringJourney />

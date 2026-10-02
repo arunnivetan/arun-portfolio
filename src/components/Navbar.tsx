@@ -25,6 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#industrial' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Certificates', href: '#certificates' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -114,4 +115,3 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     </header>
   );
 };
-
