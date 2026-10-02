@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenResume: () => void;
@@ -37,9 +37,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo with Personal Avatar */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <Zap className="w-5 h-5 text-[#D92D20] fill-[#D92D20]/20" />
+            <img 
+              src="/assets/arun_portrait.jpg" 
+              alt="R S Arun Nivetan" 
+              className="w-7 h-7 rounded-full object-cover object-top border-2 border-[#D92D20] shadow-xs group-hover:scale-110 transition-transform shrink-0" 
+            />
             <span className="font-heading font-extrabold tracking-wider text-[#17130F] text-base uppercase">
               R S ARUN NIVETAN
             </span>

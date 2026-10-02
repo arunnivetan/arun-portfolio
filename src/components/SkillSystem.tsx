@@ -17,25 +17,7 @@ export const SkillSystem: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [selectedCert, setSelectedCert] = useState<CertificateModalData | null>(null);
 
-  const certificates: CertificateModalData[] = [
-    {
-      title: "NSIC — PCB Design Certificate",
-      sub: "Embedded Systems & Multi-layer PCB Layout",
-      certNo: "052026",
-      issuer: "NSIC Technical Services Centre (Govt. of India)",
-      hours: "15 Days Internship",
-      imageSrc: "/assets/nsic_pcb_certificate.jpg",
-      tags: ['PCB Design', 'Schematics', 'Proteus', 'Hardware Troubleshooting']
-    },
-    {
-      title: "Fibercat Technology — Internship Certificate",
-      sub: "Enterprise Application & SQL Development",
-      certNo: "FC-INT-2024",
-      issuer: "Fibercat Technology Private Limited",
-      hours: "15 Days Internship",
-      imageSrc: "/assets/fibercat_certificate.jpg",
-      tags: ['Oracle APEX', 'SQL Queries', 'Web Development', 'Agile']
-    },
+  const courseCertificates: CertificateModalData[] = [
     {
       title: "ETAP — Basic & Advanced",
       sub: "Power System Modeling & Analysis",
@@ -53,6 +35,27 @@ export const SkillSystem: React.FC = () => {
       hours: "60 Hours Program",
       imageSrc: "/assets/autocad_certificate.jpg",
       tags: ['Schematics', 'Ladder Diagrams', 'Panel Layouts', 'Wire Numbering']
+    }
+  ];
+
+  const internshipCertificates: CertificateModalData[] = [
+    {
+      title: "NSIC — PCB Design Certificate",
+      sub: "Embedded Systems & Multi-layer PCB Layout",
+      certNo: "052026",
+      issuer: "NSIC Technical Services Centre (Govt. of India)",
+      hours: "15 Days Internship",
+      imageSrc: "/assets/nsic_pcb_certificate.jpg",
+      tags: ['PCB Design', 'Schematics', 'Proteus', 'Hardware Troubleshooting']
+    },
+    {
+      title: "Fibercat Technology — Internship Certificate",
+      sub: "Enterprise Application & SQL Development",
+      certNo: "FC-INT-2024",
+      issuer: "Fibercat Technology Private Limited",
+      hours: "15 Days Internship",
+      imageSrc: "/assets/fibercat_certificate.jpg",
+      tags: ['Oracle APEX', 'SQL Queries', 'Web Development', 'Agile']
     }
   ];
 
@@ -164,17 +167,22 @@ export const SkillSystem: React.FC = () => {
           })}
         </div>
 
-        {/* Certifications */}
-        <div className="mt-16 pt-10 border-t border-[#17130F]/15">
-          <div className="flex items-center gap-3 mb-8">
-            <Award className="w-5 h-5 text-[#D92D20]" />
-            <h3 className="font-heading text-2xl font-bold text-[#17130F]">
-              CERTIFICATIONS
-            </h3>
+        {/* Course Certifications */}
+        <div className="mt-16 pt-10 border-t border-[#17130F]/15 space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Award className="w-5 h-5 text-[#D92D20]" />
+              <h3 className="font-heading text-2xl font-bold text-[#17130F]">
+                COURSE CERTIFICATIONS
+              </h3>
+            </div>
+            <span className="font-mono-tech text-xs text-[#6C645C] font-semibold">
+              TECHNICAL & SOFTWARE COURSES
+            </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certificates.map((cert) => (
+            {courseCertificates.map((cert) => (
               <div 
                 key={cert.certNo}
                 onClick={() => setSelectedCert(cert)}
@@ -217,6 +225,74 @@ export const SkillSystem: React.FC = () => {
 
                 {/* Click to View Banner */}
                 <div className="pt-2 border-t border-[#17130F]/10 flex items-center justify-between font-mono-tech text-xs text-[#D92D20] font-bold">
+                  <span className="flex items-center gap-1.5">
+                    <Eye className="w-4 h-4" /> VIEW ORIGINAL CERTIFICATE
+                  </span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Internship Certificates */}
+        <div className="mt-12 pt-10 border-t border-[#17130F]/15 space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Award className="w-5 h-5 text-[#1769AA]" />
+              <h3 className="font-heading text-2xl font-bold text-[#17130F]">
+                INTERNSHIP CERTIFICATES
+              </h3>
+            </div>
+            <span className="font-mono-tech text-xs text-[#6C645C] font-semibold">
+              INDUSTRIAL & COMPANY EXPERIENCE
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {internshipCertificates.map((cert) => (
+              <div 
+                key={cert.certNo}
+                onClick={() => setSelectedCert(cert)}
+                className="bg-[#EEE8DE]/60 rounded-2xl border border-[#17130F]/10 p-6 space-y-4 hover:border-[#1769AA]/50 hover:shadow-md transition-all cursor-pointer group relative"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="space-y-1">
+                    <h4 className="font-heading text-lg font-bold text-[#17130F] group-hover:text-[#1769AA] transition-colors">
+                      {cert.title}
+                    </h4>
+                    <p className="font-mono-tech text-xs text-[#6C645C]">
+                      {cert.sub}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1.5 font-mono-tech text-[10px] font-bold text-[#278B57] bg-[#278B57]/10 px-2.5 py-1 rounded-full shrink-0">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    VERIFIED
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 font-mono-tech text-xs">
+                  <div className="space-y-0.5">
+                    <div className="text-[#6C645C] text-[10px] uppercase tracking-wider">Issued By</div>
+                    <div className="text-[#17130F] font-semibold">{cert.issuer}</div>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-[#6C645C] text-[10px] uppercase tracking-wider">Certificate No.</div>
+                    <div className="text-[#1769AA] font-bold">{cert.certNo}</div>
+                    <div className="text-[#6C645C] text-[10px]">{cert.hours}</div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {cert.tags.map(tag => (
+                    <span key={tag} className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-[#17130F]/6 text-[#17130F]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Click to View Banner */}
+                <div className="pt-2 border-t border-[#17130F]/10 flex items-center justify-between font-mono-tech text-xs text-[#1769AA] font-bold">
                   <span className="flex items-center gap-1.5">
                     <Eye className="w-4 h-4" /> VIEW ORIGINAL CERTIFICATE
                   </span>
