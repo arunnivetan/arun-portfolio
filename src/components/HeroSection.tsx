@@ -139,16 +139,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
               {/* Real SLD Background Card (Interactive Lightbox Trigger) */}
               <div 
-                onClick={() => setSelectedSldModal({
-                  title: "110 kV ETAP DISTRIBUTION SYSTEM & SINGLE LINE DIAGRAM",
-                  image: "/assets/sld_etap_110kv.png",
-                  tag: "SLD 01 // 110 kV DISTRIBUTION SYSTEM"
-                })}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-[#FAF8F4]/90 backdrop-blur-md p-2.5 rounded-lg border border-[#17130F]/20 shadow-md hover:scale-105 hover:border-[#D92D20] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedSldModal({
+                    title: "110 kV ETAP DISTRIBUTION SYSTEM & SINGLE LINE DIAGRAM",
+                    image: "/assets/sld_etap_110kv.png",
+                    tag: "SLD 01 // 110 kV DISTRIBUTION SYSTEM"
+                  });
+                }}
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-30 pointer-events-auto bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border-2 border-[#D92D20]/40 shadow-xl hover:scale-105 hover:border-[#D92D20] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
               >
                 <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#17130F]/10 font-mono-tech text-[9px] font-bold text-[#D92D20]">
                   <span>SLD 01 • 110 kV DIST SYS</span>
-                  <Maximize2 className="w-3 h-3 group-hover:scale-125 transition-transform text-[#17130F]" />
+                  <Maximize2 className="w-3.5 h-3.5 group-hover:scale-125 transition-transform text-[#D92D20]" />
                 </div>
                 <div className="relative overflow-hidden rounded border border-[#17130F]/15 bg-white h-20 sm:h-24">
                   <img
@@ -156,7 +159,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                     alt="SLD 01 - 110kV Distribution System"
                     className="w-full h-full object-contain p-0.5 opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all"
                   />
-                  <div className="absolute inset-0 bg-[#17130F]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-mono-tech text-[10px] font-bold text-white uppercase tracking-wider">
+                  <div className="absolute inset-0 bg-[#17130F]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-mono-tech text-[10px] font-bold text-white uppercase tracking-wider">
                     Click to View SLD
                   </div>
                 </div>
@@ -168,16 +171,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
               {/* Second Floating Technical Card: SLD 02 / Solar & ETAP Load Flow Node */}
               <div 
-                onClick={() => setSelectedSldModal({
-                  title: "11 kV / 0.415 kV SOLAR PV & ETAP LOAD FLOW ANALYSIS",
-                  image: "/assets/sld_etap_solar_pv.png",
-                  tag: "SLD 02 // SOLAR PV & LOAD FLOW SYSTEM"
-                })}
-                className="absolute bottom-6 left-0 sm:left-2 z-20 bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border border-[#1769AA]/40 shadow-lg hover:scale-105 hover:border-[#1769AA] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedSldModal({
+                    title: "11 kV / 0.415 kV SOLAR PV & ETAP LOAD FLOW ANALYSIS",
+                    image: "/assets/sld_etap_solar_pv.png",
+                    tag: "SLD 02 // SOLAR PV & LOAD FLOW SYSTEM"
+                  });
+                }}
+                className="absolute bottom-6 left-0 sm:left-2 z-30 pointer-events-auto bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border-2 border-[#1769AA]/40 shadow-xl hover:scale-105 hover:border-[#1769AA] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
               >
                 <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#17130F]/10 font-mono-tech text-[9px] font-bold text-[#1769AA]">
                   <span>SLD 02 • SOLAR PV & LOAD FLOW</span>
-                  <Maximize2 className="w-3 h-3 group-hover:scale-125 transition-transform text-[#17130F]" />
+                  <Maximize2 className="w-3.5 h-3.5 group-hover:scale-125 transition-transform text-[#1769AA]" />
                 </div>
                 <div className="relative overflow-hidden rounded border border-[#17130F]/15 bg-white h-20 sm:h-24">
                   <img
@@ -185,7 +191,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                     alt="SLD 02 - ETAP Solar PV & Power Load Flow System"
                     className="w-full h-full object-contain p-1 group-hover:scale-105 transition-all"
                   />
-                  <div className="absolute inset-0 bg-[#17130F]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-mono-tech text-[10px] font-bold text-white uppercase tracking-wider">
+                  <div className="absolute inset-0 bg-[#17130F]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-mono-tech text-[10px] font-bold text-white uppercase tracking-wider">
                     Click to View SLD
                   </div>
                 </div>
@@ -321,8 +327,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
       {/* Section 9: SLD Modal / Lightbox */}
       {selectedSldModal && (
-        <div className="fixed inset-0 z-50 bg-[#17130F]/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-[#F7F3EC] border-2 border-[#17130F] rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
+        <div 
+          onClick={() => setSelectedSldModal(null)}
+          className="fixed inset-0 z-50 bg-[#17130F]/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200 cursor-pointer"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="bg-[#F7F3EC] border-2 border-[#17130F] rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl relative cursor-default"
+          >
             
             {/* Modal Header */}
             <div className="bg-[#17130F] text-white p-4 flex items-center justify-between font-mono-tech text-xs">
