@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #F7F3EC;
+    --bg-secondary: #EEE8DE;
+    --text-dark: #17130F;
+    --text-muted: #6C645C;
+    --border-light: #E2DDD5;
+    
+    --signal-red: #D92D20;
+    --signal-blue: #1769AA;
+    --signal-green: #278B57;
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: #F7F3EC;
+  color: #17130F;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Engineering Blueprint & Subtle Grid Textures */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 19, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 19, 15, 0.05) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(23, 19, 15, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animated Wire Current Flow Effect */
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.wire-animated {
+  stroke-dasharray: 6 6;
+  animation: dashFlow 2s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px currentColor); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px currentColor); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F3EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D2C7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #17130F;
+}
+
+/* Engineering dossier card border styling */
+.dossier-border {
+  border: 1px solid rgba(23, 19, 15, 0.15);
+  box-shadow: 4px 4px 0px 0px rgba(23, 19, 15, 0.06);
+}
+
+.dossier-border:hover {
+  border-color: rgba(23, 19, 15, 0.35);
+  box-shadow: 6px 6px 0px 0px rgba(23, 19, 15, 0.12);
+}
+
