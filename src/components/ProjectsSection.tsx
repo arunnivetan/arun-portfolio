@@ -109,14 +109,15 @@ export const ProjectsSection: React.FC = () => {
 
                     {/* EcoBin Award Photo */}
                     {project.id === 'ecobin' && (
-                      <div className="rounded-xl overflow-hidden border border-[#17130F]/10 mt-2">
+                      <div className="rounded-xl overflow-hidden border border-[#17130F]/10 mt-2 bg-[#EEE8DE]">
                         <img
                           src="/assets/innovathon_award.jpg"
                           alt="EcoBin — 1st Prize SDG Innovathon 4.0 Award Ceremony"
-                          className="w-full h-44 object-cover object-top"
+                          className="w-full h-52 sm:h-64 object-cover object-center"
                         />
-                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C]">
-                          SDG Innovathon 4.0 Award Ceremony — 1st Prize Winner
+                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C] flex justify-between items-center">
+                          <span>SDG Innovathon 4.0 Award Ceremony</span>
+                          <span className="font-bold text-[#D92D20]">1st Prize Winner</span>
                         </div>
                       </div>
                     )}
