@@ -20,19 +20,6 @@ export const AchievementsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Award Ceremony Photo Banner */}
-        <div className="mb-10 rounded-2xl overflow-hidden border border-[#1B140E]/10 bg-[#F2EDE5]">
-          <img
-            src="/assets/innovathon_award.jpg"
-            alt="1st Prize — Sairam SDG Innovathon 4.0 Award Ceremony"
-            className="w-full h-56 sm:h-72 object-cover object-top"
-          />
-          <div className="px-5 py-3 flex items-center justify-between">
-            <div className="font-mono-tech text-xs text-[#1B140E]">
-              <span className="font-bold text-[#E53935]">1st Prize</span> — SDG Innovathon 4.0 Award Ceremony · Sai Ram Engineering College · March 2026
-            </div>
-          </div>
-        </div>
 
         {/* Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
