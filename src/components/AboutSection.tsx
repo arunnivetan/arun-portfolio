@@ -38,68 +38,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
           </div>
         </div>
 
-        {/* Section: WHAT I DO */}
-        <div className="space-y-8 pt-6 border-t border-[#17130F]/15">
-          <h3 className="font-mono-tech text-xs font-bold text-[#D92D20] uppercase tracking-widest">
-            WHAT I DO
-          </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 bg-[#EEE8DE]/70 rounded-xl border border-[#17130F]/10 space-y-2">
-              <div className="font-mono-tech text-sm font-bold text-[#D92D20]">01</div>
-              <h4 className="font-heading text-lg font-bold text-[#17130F]">Electrical Engineering</h4>
-              <p className="text-sm text-[#6C645C]">
-                Power systems modeling, load flow analysis, and single-line diagram studies.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#EEE8DE]/70 rounded-xl border border-[#17130F]/10 space-y-2">
-              <div className="font-mono-tech text-sm font-bold text-[#278B57]">02</div>
-              <h4 className="font-heading text-lg font-bold text-[#17130F]">Renewable Energy</h4>
-              <p className="text-sm text-[#6C645C]">
-                Solar PV installations, inverter configuration, and clean energy tech.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#EEE8DE]/70 rounded-xl border border-[#17130F]/10 space-y-2">
-              <div className="font-mono-tech text-sm font-bold text-[#1769AA]">03</div>
-              <h4 className="font-heading text-lg font-bold text-[#17130F]">Technology & IoT</h4>
-              <p className="text-sm text-[#6C645C]">
-                ESP32 microcontrollers, sensor telemetry, and smart hardware integration.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Section: WHAT DRIVES ME */}
-        <div className="space-y-8 pt-6 border-t border-[#17130F]/15">
-          <h3 className="font-mono-tech text-xs font-bold text-[#D92D20] uppercase tracking-widest">
-            WHAT DRIVES ME
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-2">
-              <h4 className="font-heading font-bold text-base text-[#17130F]">REAL-WORLD PROBLEMS</h4>
-              <p className="text-sm text-[#6C645C] leading-relaxed">
-                I enjoy building solutions for practical problems.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="font-heading font-bold text-base text-[#17130F]">CONTINUOUS LEARNING</h4>
-              <p className="text-sm text-[#6C645C] leading-relaxed">
-                I like learning new tools and technologies.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="font-heading font-bold text-base text-[#17130F]">BUILDING</h4>
-              <p className="text-sm text-[#6C645C] leading-relaxed">
-                I enjoy turning ideas into working projects.
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Section: MY JOURNEY */}
         <div className="space-y-8 pt-6 border-t border-[#17130F]/15">
