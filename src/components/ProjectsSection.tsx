@@ -138,14 +138,24 @@ export const ProjectsSection: React.FC = () => {
 
                     {/* Vasavi CRM EDII IVP Letter */}
                     {project.id === 'vasavi-crm' && (
-                      <div className="rounded-xl overflow-hidden border border-[#17130F]/10 mt-2 bg-[#EEE8DE]">
-                        <img
-                          src="/assets/edii_ivp_letter.png"
-                          alt="EDII Tamil Nadu — Innovation Voucher Program Official Communication"
-                          className="w-full h-48 object-cover object-top"
-                        />
-                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C]">
-                          EDII Tamil Nadu — Innovation Voucher Program Screening (Sri Vasavi Proposal)
+                      <div className="rounded-xl overflow-hidden border border-[#17130F]/15 mt-3 bg-[#17130F] p-2 group relative">
+                        <a href="/assets/edii_ivp_letter.png" target="_blank" rel="noopener noreferrer">
+                          <img
+                            src="/assets/edii_ivp_letter.png"
+                            alt="EDII Tamil Nadu — Innovation Voucher Program Official Communication"
+                            className="w-full h-auto max-h-[400px] object-contain rounded transition-transform group-hover:scale-[1.01]"
+                          />
+                        </a>
+                        <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C] flex items-center justify-between mt-2 rounded">
+                          <span>EDII Tamil Nadu — Innovation Voucher Program Communication</span>
+                          <a 
+                            href="/assets/edii_ivp_letter.png" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="font-bold text-[#D92D20] hover:underline"
+                          >
+                            VIEW FULL EMAIL →
+                          </a>
                         </div>
                       </div>
                     )}

@@ -143,7 +143,7 @@ export const IndustrialExposure: React.FC = () => {
                         <img
                           src={photo.src}
                           alt={photo.caption}
-                          className="w-full h-64 sm:h-80 object-cover object-top"
+                          className="w-full h-72 sm:h-96 object-cover object-center rounded-t-xl"
                         />
                         <div className="px-3 py-2 font-mono-tech text-[10px] text-[#6C645C]">
                           {photo.caption}

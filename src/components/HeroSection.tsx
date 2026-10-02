@@ -47,7 +47,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               <h1 className="font-heading text-5xl sm:text-7xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-[#17130F] leading-[0.95]">
                 R S ARUN
               </h1>
-              <h1 className="font-heading text-5xl sm:text-7xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-[#D92D20] leading-[0.95]">
+              <h1 className="font-heading text-5xl sm:text-7xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-[#17130F] leading-[0.95]">
                 NIVETAN
               </h1>
             </div>
