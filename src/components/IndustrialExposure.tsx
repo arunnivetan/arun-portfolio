@@ -5,7 +5,7 @@ import { Factory, Sun, Cpu, Code, Activity, CheckCircle2, ChevronRight, Camera }
 // Map internship IDs to their field photos
 const INTERNSHIP_PHOTOS: Record<string, { src: string; caption: string }[]> = {
   'kothari': [
-    { src: '/assets/kothari_plant.jpg', caption: 'At the Cogeneration Turbine House — Kothari Sugars & Chemicals' }
+    { src: '/assets/kothari_field_site.jpg', caption: 'Industrial Processing & Machinery Field Observation — Kothari Sugars & Chemicals' }
   ],
   'aswin-solar': [
     { src: '/assets/solar_pv_rooftop.jpg', caption: '30 kW Rooftop Solar PV Installation — Vadapalani Temple, Chennai' },
@@ -137,7 +137,7 @@ export const IndustrialExposure: React.FC = () => {
                         <img
                           src={photo.src}
                           alt={photo.caption}
-                          className="w-full h-44 object-cover object-center"
+                          className="w-full h-64 sm:h-80 object-cover object-top"
                         />
                         <div className="px-3 py-2 font-mono-tech text-[10px] text-[#6C645C]">
                           {photo.caption}
