@@ -10,9 +10,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
     <section id="about" className="py-24 bg-[#F7F3EC] relative border-b border-[#17130F]/15 bg-grid-pattern">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         
-        {/* Hero Header & Portrait */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        {/* Hero Header */}
+        <div>
+          <div className="space-y-6 max-w-3xl">
             <h2 className="font-heading text-6xl sm:text-7xl font-extrabold text-[#17130F] leading-none tracking-tight">
               WHO<br />
               <span className="text-[#D92D20]">I AM</span>
@@ -21,16 +21,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
             <p className="text-xl sm:text-2xl font-medium text-[#17130F] leading-relaxed">
               "I am an Electrical and Electronics Engineering student interested in electrical systems, renewable energy, IoT and practical problem solving."
             </p>
-          </div>
-
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative rounded-2xl overflow-hidden border border-[#17130F]/20 shadow-xl max-w-xs bg-[#EEE8DE]">
-              <img
-                src="/assets/arun_portrait.jpg"
-                alt="R S Arun Nivetan"
-                className="w-full h-auto object-cover object-top"
-              />
-            </div>
           </div>
         </div>
 
