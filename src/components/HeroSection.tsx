@@ -166,25 +166,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* Second Floating Technical Card: SLD 02 / Power System Node */}
+              {/* Second Floating Technical Card: SLD 02 / Solar & ETAP Load Flow Node */}
               <div 
                 onClick={() => setSelectedSldModal({
-                  title: "69 kV SUBSTATION DISTRIBUTION & ETAP SHORT CIRCUIT ANALYSIS",
-                  image: "/assets/sld_etap_110kv.png",
-                  tag: "SLD 02 // 69 kV DISTRIBUTION SYSTEM"
+                  title: "11 kV / 0.415 kV SOLAR PV & ETAP LOAD FLOW ANALYSIS",
+                  image: "/assets/sld_etap_solar_pv.png",
+                  tag: "SLD 02 // SOLAR PV & LOAD FLOW SYSTEM"
                 })}
-                className="absolute bottom-6 left-0 sm:left-2 z-20 bg-[#FAF8F4]/90 backdrop-blur-md p-2.5 rounded-lg border border-[#1769AA]/40 shadow-md hover:scale-105 hover:border-[#1769AA] transition-all cursor-pointer group max-w-[190px] sm:max-w-[220px]"
+                className="absolute bottom-6 left-0 sm:left-2 z-20 bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border border-[#1769AA]/40 shadow-lg hover:scale-105 hover:border-[#1769AA] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
               >
                 <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#17130F]/10 font-mono-tech text-[9px] font-bold text-[#1769AA]">
-                  <span>SLD 02 • 69 kV DIST SYS</span>
+                  <span>SLD 02 • SOLAR PV & LOAD FLOW</span>
                   <Maximize2 className="w-3 h-3 group-hover:scale-125 transition-transform text-[#17130F]" />
                 </div>
-                <div className="font-mono-tech text-[10px] font-semibold text-[#17130F] mb-1">
-                  ETAP Power System Analysis
+                <div className="relative overflow-hidden rounded border border-[#17130F]/15 bg-white h-20 sm:h-24">
+                  <img
+                    src="/assets/sld_etap_solar_pv.png"
+                    alt="SLD 02 - ETAP Solar PV & Power Load Flow System"
+                    className="w-full h-full object-contain p-1 group-hover:scale-105 transition-all"
+                  />
+                  <div className="absolute inset-0 bg-[#17130F]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-mono-tech text-[10px] font-bold text-white uppercase tracking-wider">
+                    Click to View SLD
+                  </div>
                 </div>
-                <div className="font-mono-tech text-[8px] text-[#6C645C] space-y-0.5">
-                  <div className="flex justify-between"><span>BUS VOLTAGE:</span><span className="text-[#278B57] font-bold">10.98 kV (99.8%)</span></div>
-                  <div className="flex justify-between"><span>FAULT CURRENT:</span><span className="text-[#D92D20] font-bold">18.42 kA</span></div>
+                <div className="font-mono-tech text-[8px] text-[#6C645C] mt-1 space-y-0.5">
+                  <div className="flex justify-between"><span>BUS VOLTAGE:</span><span className="text-[#278B57] font-bold">11 kV (100%)</span></div>
+                  <div className="flex justify-between"><span>TRANSFORMER T1:</span><span className="text-[#D92D20] font-bold">5 MVA</span></div>
                 </div>
               </div>
 
