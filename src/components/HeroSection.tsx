@@ -137,7 +137,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 <circle cx="320" cy="180" r="4" fill="#278B57" />
               </svg>
 
-              {/* Real SLD Background Card (Interactive Lightbox Trigger) */}
+              {/* Real SLD Background Card (Interactive Lightbox Trigger) - BEHIND PORTRAIT */}
               <div 
                 onClick={(e) => {
                   e.stopPropagation();
@@ -147,7 +147,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                     tag: "SLD 01 // 110 kV DISTRIBUTION SYSTEM"
                   });
                 }}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-30 pointer-events-auto bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border-2 border-[#D92D20]/40 shadow-xl hover:scale-105 hover:border-[#D92D20] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
+                className="absolute top-2 -right-2 sm:top-4 sm:-right-6 z-10 hover:z-40 bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border-2 border-[#D92D20]/40 shadow-xl hover:scale-105 hover:border-[#D92D20] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
               >
                 <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#17130F]/10 font-mono-tech text-[9px] font-bold text-[#D92D20]">
                   <span>SLD 01 • 110 kV DIST SYS</span>
@@ -169,7 +169,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* Second Floating Technical Card: SLD 02 / Solar & ETAP Load Flow Node */}
+              {/* Second Floating Technical Card: SLD 02 / Solar & ETAP Load Flow Node - IN FRONT OF PORTRAIT */}
               <div 
                 onClick={(e) => {
                   e.stopPropagation();
@@ -179,7 +179,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                     tag: "SLD 02 // SOLAR PV & LOAD FLOW SYSTEM"
                   });
                 }}
-                className="absolute bottom-6 left-0 sm:left-2 z-30 pointer-events-auto bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border-2 border-[#1769AA]/40 shadow-xl hover:scale-105 hover:border-[#1769AA] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
+                className="absolute bottom-6 -left-2 sm:bottom-6 sm:-left-6 z-30 pointer-events-auto bg-[#FAF8F4]/95 backdrop-blur-md p-2.5 rounded-lg border-2 border-[#1769AA]/40 shadow-xl hover:scale-105 hover:border-[#1769AA] transition-all cursor-pointer group max-w-[200px] sm:max-w-[240px]"
               >
                 <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#17130F]/10 font-mono-tech text-[9px] font-bold text-[#1769AA]">
                   <span>SLD 02 • SOLAR PV & LOAD FLOW</span>
@@ -201,8 +201,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* SECTION 1: Actual Photo Container */}
-              <div className="relative z-10 flex justify-center pt-8">
+              {/* SECTION 1: Actual Photo Container (Middle Layer z-20) */}
+              <div className="relative z-20 flex justify-center pt-8 pointer-events-auto">
                 <div className="relative rounded-2xl overflow-hidden border-2 border-[#17130F]/20 shadow-2xl bg-gradient-to-b from-[#EEE8DE] to-[#F7F3EC] max-w-[340px] sm:max-w-[390px] group">
                   
                   {/* Fine technical photo header label */}
