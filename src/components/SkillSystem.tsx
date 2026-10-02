@@ -97,70 +97,74 @@ export const SkillSystem: React.FC = () => {
           </div>
         </div>
 
-        {/* Skill Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {/* Skill Categories Grid (2x2 Container Cards as drawn) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {SKILL_CATEGORIES.map((category) => {
             const colors = getAccentColor(category.color);
 
             return (
-              <div key={category.code} className="space-y-5">
-                
-                {/* Category Header */}
-                <div className="flex items-center gap-3">
-                  <div className={`w-1 h-8 rounded-full ${colors.bar}`} />
-                  <div>
-                    <h3 className="font-heading text-lg font-bold text-[#17130F] leading-tight">
-                      {category.title}
-                    </h3>
-                    <span className="font-mono-tech text-[10px] text-[#6C645C] uppercase tracking-wider">
-                      {category.skills.length} skills
+              <div 
+                key={category.code} 
+                className="bg-[#EEE8DE]/70 rounded-2xl border border-[#17130F]/15 p-6 sm:p-7 space-y-5 hover:border-[#17130F]/30 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between"
+              >
+                <div>
+                  {/* Category Header */}
+                  <div className="flex items-center justify-between border-b border-[#17130F]/10 pb-4 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-1.5 h-7 rounded-full ${colors.bar}`} />
+                      <h3 className="font-heading text-base sm:text-lg font-extrabold text-[#17130F] leading-tight">
+                        {category.title}
+                      </h3>
+                    </div>
+                    <span className="font-mono-tech text-[10px] text-[#6C645C] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#F7F3EC] border border-[#17130F]/10 shrink-0">
+                      {category.skills.length} SKILLS
                     </span>
                   </div>
-                </div>
 
-                {/* Skills List */}
-                <div className="space-y-2">
-                  {category.skills.map((skill) => {
-                    const isHovered = hoveredSkill === skill.name;
+                  {/* Skills List */}
+                  <div className="space-y-2.5">
+                    {category.skills.map((skill) => {
+                      const isHovered = hoveredSkill === skill.name;
 
-                    return (
-                      <div
-                        key={skill.name}
-                        onMouseEnter={() => setHoveredSkill(skill.name)}
-                        onMouseLeave={() => setHoveredSkill(null)}
-                        className="group relative"
-                      >
+                      return (
                         <div
-                          className={`flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-200 cursor-default ${
-                            isHovered
-                              ? `bg-[#17130F] border-[#17130F] shadow-sm`
-                              : 'bg-[#EEE8DE]/60 border-[#17130F]/10 hover:border-[#17130F]/25'
-                          }`}
+                          key={skill.name}
+                          onMouseEnter={() => setHoveredSkill(skill.name)}
+                          onMouseLeave={() => setHoveredSkill(null)}
+                          className="group relative"
                         >
-                          <span className={`font-heading font-semibold text-sm transition-colors ${
-                            isHovered ? 'text-white' : 'text-[#17130F]'
-                          }`}>
-                            {skill.name}
-                          </span>
+                          <div
+                            className={`flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-200 cursor-default ${
+                              isHovered
+                                ? `bg-[#17130F] border-[#17130F] shadow-sm`
+                                : 'bg-[#F7F3EC] border-[#17130F]/10 hover:border-[#17130F]/25'
+                            }`}
+                          >
+                            <span className={`font-heading font-semibold text-sm transition-colors ${
+                              isHovered ? 'text-white' : 'text-[#17130F]'
+                            }`}>
+                              {skill.name}
+                            </span>
 
-                          <span className={`font-mono-tech text-[10px] font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full transition-all ${
-                            isHovered
-                              ? `${colors.bg} ${colors.text}`
-                              : 'bg-[#17130F]/6 text-[#6C645C]'
-                          }`}>
-                            {skill.level}
-                          </span>
-                        </div>
-
-                        {/* Clean Tooltip */}
-                        {isHovered && (
-                          <div className="absolute left-0 right-0 top-full mt-1.5 z-20 px-4 py-2.5 bg-white rounded-lg border border-[#17130F]/10 shadow-lg font-mono-tech text-xs text-[#6C645C] leading-relaxed animate-in fade-in slide-in-from-top-1 duration-150">
-                            {skill.tooltip}
+                            <span className={`font-mono-tech text-[10px] font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full transition-all ${
+                              isHovered
+                                ? `${colors.bg} ${colors.text}`
+                                : 'bg-[#17130F]/6 text-[#6C645C]'
+                            }`}>
+                              {skill.level}
+                            </span>
                           </div>
-                        )}
-                      </div>
-                    );
-                  })}
+
+                          {/* Clean Tooltip */}
+                          {isHovered && (
+                            <div className="absolute left-0 right-0 top-full mt-1.5 z-20 px-4 py-2.5 bg-white rounded-lg border border-[#17130F]/10 shadow-lg font-mono-tech text-xs text-[#6C645C] leading-relaxed animate-in fade-in slide-in-from-top-1 duration-150">
+                              {skill.tooltip}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             );

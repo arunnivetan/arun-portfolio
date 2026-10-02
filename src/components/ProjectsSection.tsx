@@ -136,26 +136,7 @@ export const ProjectsSection: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="rounded-xl overflow-hidden border border-[#17130F]/15 bg-[#17130F] p-2 group relative">
-                          <a href="/assets/edii_ivp_letter.png" target="_blank" rel="noopener noreferrer">
-                            <img
-                              src="/assets/edii_ivp_letter.png"
-                              alt="EDII Tamil Nadu — Innovation Voucher Program Official Communication"
-                              className="w-full h-auto max-h-[380px] object-contain rounded transition-transform group-hover:scale-[1.01]"
-                            />
-                          </a>
-                          <div className="px-3 py-1.5 bg-[#EEE8DE] font-mono-tech text-[10px] text-[#6C645C] flex items-center justify-between mt-2 rounded">
-                            <span>EDII Tamil Nadu — Innovation Voucher Program Screening</span>
-                            <a 
-                              href="/assets/edii_ivp_letter.png" 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="font-bold text-[#D92D20] hover:underline"
-                            >
-                              VIEW FULL EMAIL →
-                            </a>
-                          </div>
-                        </div>
+
                       </div>
                     )}
 
