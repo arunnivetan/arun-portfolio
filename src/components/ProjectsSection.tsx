@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/portfolioData';
-import { ArrowRight, X, Award, CheckCircle2 } from 'lucide-react';
+import { X, Award, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../types';
 
@@ -95,26 +95,33 @@ export const ProjectsSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#17130F]">
-                    {project.title}
-                  </h3>
-                  <p className="font-heading text-sm font-semibold text-[#D92D20]">
-                    {project.subtitle}
-                  </p>
-                  <p className="text-base text-[#6C645C] max-w-3xl leading-relaxed pt-1">
-                    {project.description}
-                  </p>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pt-2">
+                  <div className="lg:col-span-7 space-y-2">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#17130F]">
+                      {project.title}
+                    </h3>
+                    <p className="font-heading text-sm font-semibold text-[#D92D20]">
+                      {project.subtitle}
+                    </p>
+                    <p className="text-sm text-[#6C645C] leading-relaxed pt-1">
+                      {project.description}
+                    </p>
+                  </div>
 
-                <div className="pt-2 flex items-center justify-between">
-                  <button
-                    onClick={() => setActiveModalProject(project)}
-                    className="px-6 py-3 rounded-lg bg-[#17130F] text-white font-mono-tech text-xs font-bold uppercase tracking-wider hover:bg-[#D92D20] transition-colors flex items-center gap-2 cursor-pointer group"
-                  >
-                    <span>VIEW PROJECT</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  {/* Right side achievement highlight box */}
+                  <div className="lg:col-span-5 bg-[#EEE8DE] p-4 rounded-xl border border-[#17130F]/10 space-y-2">
+                    <div className="font-mono-tech text-[10px] text-[#278B57] font-bold uppercase tracking-wider flex items-center gap-1.5">
+                      <Award className="w-3.5 h-3.5" /> KEY HIGHLIGHTS & ACHIEVEMENTS
+                    </div>
+                    <div className="space-y-1.5 font-mono-tech text-xs text-[#17130F]">
+                      {project.achievements?.slice(0, 3).map((ach, aIdx) => (
+                        <div key={aIdx} className="flex items-start gap-1.5 bg-[#F7F3EC] p-2 rounded border border-[#17130F]/08">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#278B57] shrink-0 mt-0.5" />
+                          <span>{ach}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             );

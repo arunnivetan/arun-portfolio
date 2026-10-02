@@ -73,6 +73,10 @@ export const PROJECTS: Project[] = [
     description: "A technology concept and interactive platform for converting user floor plans and existing room photos into visual 3D interior renovation concepts paired with location-specific budget estimation.",
     fullDetails: "Solves the traditional renovation pain point where homeowners struggle to visualize final space designs and estimate local material & labor costs prior to execution. Provides real-time visual exploration and automated line-item cost estimations based on geographic location parameters.",
     technologies: ["AI Image Generation", "React", "Location APIs", "Cost Estimation Engine", "Figma UI/UX", "Tailwind CSS"],
+    achievements: [
+      "Finalist EDII Tamil Nadu IVP (₹3 Lakh)",
+      "Top 6 Pitch Circuit Finalist (CIIC)"
+    ],
     flowNodes: [
       { id: "sp1", label: "USER INPUT", sublabel: "Floor Plan / Photo", type: "input" },
       { id: "sp2", label: "AI VISUALIZER", sublabel: "Interior Rendering", type: "process" },
@@ -91,6 +95,10 @@ export const PROJECTS: Project[] = [
     description: "A full-stack business management CRM system custom-built for Sri Vasavi Plywoods (hardware, laminates, glass, interior supplies) to digitize customer management, inventory, invoicing, and payment follow-ups.",
     fullDetails: "Replaced error-prone manual paper registers with a centralized web dashboard. Built with Supabase PostgreSQL database secured with Row Level Security (RLS) policies. Features automated customer payment tracking, PDF invoice generation, and integrated WhatsApp business reminders. Taught me how software can solve real-world operational challenges in traditional businesses.",
     technologies: ["Supabase", "PostgreSQL", "Row Level Security (RLS)", "Figma", "Web Frontend", "PDF Invoice Engine", "WhatsApp Integration", "Business Analytics"],
+    achievements: [
+      "Deployed for Live Commercial Business Operations",
+      "Automated Invoicing & WhatsApp Reminders"
+    ],
     flowNodes: [
       { id: "crm1", label: "CUSTOMER", sublabel: "Profile & History", type: "input" },
       { id: "crm2", label: "ORDER MANAGEMENT", sublabel: "Quotations & Sales", type: "process" },
