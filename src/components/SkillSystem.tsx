@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
+import { Award, ShieldCheck } from 'lucide-react';
 
 export const SkillSystem: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -110,6 +111,98 @@ export const SkillSystem: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Certifications */}
+        <div className="mt-16 pt-10 border-t border-[#17130F]/15">
+          <div className="flex items-center gap-3 mb-8">
+            <Award className="w-5 h-5 text-[#D92D20]" />
+            <h3 className="font-heading text-2xl font-bold text-[#17130F]">
+              CERTIFICATIONS
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* ETAP Certification */}
+            <div className="bg-[#EEE8DE]/60 rounded-2xl border border-[#17130F]/10 p-6 space-y-4 hover:border-[#17130F]/25 transition-colors">
+              <div className="flex items-start justify-between">
+                <div className="space-y-1">
+                  <h4 className="font-heading text-lg font-bold text-[#17130F]">
+                    ETAP — Basic & Advanced
+                  </h4>
+                  <p className="font-mono-tech text-xs text-[#6C645C]">
+                    Power System Modeling & Analysis
+                  </p>
+                </div>
+                <div className="flex items-center gap-1.5 font-mono-tech text-[10px] font-bold text-[#278B57] bg-[#278B57]/10 px-2.5 py-1 rounded-full shrink-0">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  VERIFIED
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 font-mono-tech text-xs">
+                <div className="space-y-0.5">
+                  <div className="text-[#6C645C] text-[10px] uppercase tracking-wider">Issued By</div>
+                  <div className="text-[#17130F] font-semibold">Sarva Sudarsanaa Academy</div>
+                  <div className="text-[#6C645C] text-[10px]">ISO 9001:2015 Certified</div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[#6C645C] text-[10px] uppercase tracking-wider">Certificate No.</div>
+                  <div className="text-[#D92D20] font-bold">SSA33603</div>
+                  <div className="text-[#6C645C] text-[10px]">60 Hours Program</div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['Load Flow', 'Short Circuit', 'Arc Flash', 'SLD Modeling'].map(tag => (
+                  <span key={tag} className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-[#17130F]/6 text-[#17130F]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* AutoCAD Electrical Certification */}
+            <div className="bg-[#EEE8DE]/60 rounded-2xl border border-[#17130F]/10 p-6 space-y-4 hover:border-[#17130F]/25 transition-colors">
+              <div className="flex items-start justify-between">
+                <div className="space-y-1">
+                  <h4 className="font-heading text-lg font-bold text-[#17130F]">
+                    AutoCAD Electrical CAD
+                  </h4>
+                  <p className="font-mono-tech text-xs text-[#6C645C]">
+                    Electrical Schematic Design & Drafting
+                  </p>
+                </div>
+                <div className="flex items-center gap-1.5 font-mono-tech text-[10px] font-bold text-[#278B57] bg-[#278B57]/10 px-2.5 py-1 rounded-full shrink-0">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  VERIFIED
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 font-mono-tech text-xs">
+                <div className="space-y-0.5">
+                  <div className="text-[#6C645C] text-[10px] uppercase tracking-wider">Issued By</div>
+                  <div className="text-[#17130F] font-semibold">Sarva Sudarsanaa Academy</div>
+                  <div className="text-[#6C645C] text-[10px]">ISO 9001:2015 Certified</div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[#6C645C] text-[10px] uppercase tracking-wider">Certificate No.</div>
+                  <div className="text-[#D92D20] font-bold">SSA73713</div>
+                  <div className="text-[#6C645C] text-[10px]">60 Hours Program</div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['Schematics', 'Ladder Diagrams', 'Panel Layouts', 'Wire Numbering'].map(tag => (
+                  <span key={tag} className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-[#17130F]/6 text-[#17130F]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
