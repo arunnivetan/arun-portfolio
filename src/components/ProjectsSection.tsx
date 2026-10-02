@@ -1,200 +1,120 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/portfolioData';
-import { Award, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, X, Award, CheckCircle2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import type { Project } from '../types';
 
-interface ProjectsSectionProps {
-  activeSignal: 'power' | 'control' | 'renewable' | 'all';
-}
+export const ProjectsSection: React.FC = () => {
+  const [selectedFilter, setSelectedFilter] = useState<string>('ALL');
+  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
-export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ activeSignal }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
-  const [expandedProjectId, setExpandedProjectId] = useState<string | null>('ecobin');
-
-  const categories = ['ALL', 'IoT & AI', 'AI Product', 'Enterprise CRM', 'Concept'];
+  const filters = ['ALL', 'IoT', 'SOFTWARE', 'ELECTRICAL'];
 
   const filteredProjects = PROJECTS.filter(project => {
-    const categoryMatch = selectedCategory === 'ALL' || project.category === selectedCategory;
-    const signalMatch = activeSignal === 'all' || project.signalType === activeSignal;
-    return categoryMatch && signalMatch;
+    if (selectedFilter === 'ALL') return true;
+    if (selectedFilter === 'IoT') return project.category.includes('IoT') || project.id === 'ecobin';
+    if (selectedFilter === 'SOFTWARE') return project.category.includes('CRM') || project.category.includes('Product') || project.id === 'vasavi-crm' || project.id === 'spacecraft-ai';
+    if (selectedFilter === 'ELECTRICAL') return project.signalType === 'power' || project.id === 'ecobin';
+    return true;
   });
 
-  const getSignalBadgeColor = (signalType: string) => {
-    switch (signalType) {
-      case 'power': return 'bg-[#E53935]/10 text-[#E53935] border-[#E53935]/30';
-      case 'control': return 'bg-[#1976D2]/10 text-[#1976D2] border-[#1976D2]/30';
-      case 'renewable': return 'bg-[#2E9B59]/10 text-[#2E9B59] border-[#2E9B59]/30';
-      default: return 'bg-[#1B140E]/10 text-[#1B140E] border-[#1B140E]/30';
+  const getAccentColor = (id: string) => {
+    switch (id) {
+      case 'ecobin': return { border: 'border-[#278B57]/40', badge: 'bg-[#278B57]/10 text-[#278B57]', hoverBorder: 'hover:border-[#278B57]' };
+      case 'spacecraft-ai': return { border: 'border-[#1769AA]/40', badge: 'bg-[#1769AA]/10 text-[#1769AA]', hoverBorder: 'hover:border-[#1769AA]' };
+      case 'vasavi-crm': return { border: 'border-[#D92D20]/40', badge: 'bg-[#D92D20]/10 text-[#D92D20]', hoverBorder: 'hover:border-[#D92D20]' };
+      default: return { border: 'border-[#17130F]/20', badge: 'bg-[#17130F]/10 text-[#17130F]', hoverBorder: 'hover:border-[#17130F]' };
     }
   };
 
   return (
-    <section id="projects" className="py-20 bg-[#FAF8F4] relative border-b border-[#1B140E]/15">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-[#F7F3EC] relative border-b border-[#17130F]/15 bg-grid-pattern">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#1B140E]/15 pb-6">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#17130F]/15 pb-8">
           <div>
-            <div className="font-mono-tech text-xs text-[#E53935] uppercase tracking-wider font-bold mb-1 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#E53935]" />
-              SECTION 03 // ENGINEERING DOSSIERS
-            </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-[#1B140E]">
-              FEATURED PROJECTS
+            <h2 className="font-heading text-5xl sm:text-6xl font-extrabold text-[#17130F] leading-none tracking-tight">
+              PROJECTS
             </h2>
+            <p className="text-base text-[#6C645C] mt-3">
+              Things I have built and worked on.
+            </p>
           </div>
 
-          {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 mt-4 md:mt-0 font-mono-tech text-xs">
-            {categories.map(cat => (
+          {/* Minimal Project Filters */}
+          <div className="flex items-center gap-2 font-mono-tech text-xs">
+            {filters.map(filter => (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded transition-all cursor-pointer ${
-                  selectedCategory === cat 
-                    ? 'bg-[#1B140E] text-[#FAF8F4] font-bold' 
-                    : 'bg-[#F2EDE5] text-[#6C645C] hover:text-[#1B140E]'
+                key={filter}
+                onClick={() => setSelectedFilter(filter)}
+                className={`px-3 py-1 rounded transition-all cursor-pointer ${
+                  selectedFilter === filter 
+                    ? 'bg-[#17130F] text-white font-bold' 
+                    : 'bg-[#EEE8DE] text-[#6C645C] hover:text-[#17130F]'
                 }`}
               >
-                {cat}
+                {filter}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Projects Grid / Dossier Cards */}
+        {/* Clean Project Cards List */}
         <div className="space-y-8">
-          {filteredProjects.map((project) => {
-            const isExpanded = expandedProjectId === project.id;
+          {filteredProjects.map((project, idx) => {
+            const accent = getAccentColor(project.id);
+            const tagsToShow = project.id === 'ecobin' 
+              ? ['AI', 'IoT', 'Raspberry Pi', 'YOLOv8']
+              : project.id === 'spacecraft-ai'
+              ? ['AI', 'UI/UX', 'Web', 'Cost Estimation']
+              : ['Supabase', 'PostgreSQL', 'React', 'RLS'];
 
             return (
               <div 
                 key={project.id}
-                className="dossier-border bg-[#F2EDE5] rounded-xl overflow-hidden transition-all duration-300"
+                className={`bg-[#F7F3EC] rounded-2xl border-2 ${accent.border} ${accent.hoverBorder} p-6 sm:p-8 space-y-6 transition-all duration-300 shadow-sm hover:shadow-md`}
               >
-                {/* Dossier Header Bar */}
-                <div className="p-6 border-b border-[#1B140E]/15 bg-[#FAF8F4] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono-tech text-xs font-bold text-[#E53935] px-2 py-0.5 rounded bg-[#E53935]/10 border border-[#E53935]/20">
-                        {project.number}
-                      </span>
-                      <span className={`font-mono-tech text-xs uppercase px-2 py-0.5 rounded border ${getSignalBadgeColor(project.signalType)}`}>
-                        {project.category}
-                      </span>
-                    </div>
-
-                    <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#1B140E] pt-1">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#17130F]/10 pb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono-tech text-xs font-bold text-[#D92D20]">
+                      PROJECT 0{idx + 1}
+                    </span>
+                    <span className={`font-mono-tech text-xs uppercase px-2.5 py-0.5 rounded ${accent.badge} font-semibold`}>
                       {project.title}
-                    </h3>
-                    <p className="font-heading text-sm font-semibold text-[#6C645C]">
-                      "{project.subtitle}"
-                    </p>
+                    </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <button
-                      onClick={() => setExpandedProjectId(isExpanded ? null : project.id)}
-                      className="px-4 py-2 rounded bg-[#1B140E] text-[#FAF8F4] font-mono-tech text-xs font-bold hover:bg-[#E53935] transition-colors flex items-center gap-2 cursor-pointer"
-                    >
-                      <span>{isExpanded ? 'COLLAPSE DOSSIER' : 'INSPECT SCHEMATIC'}</span>
-                      {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                    </button>
+                  {/* Clean Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {tagsToShow.map(tag => (
+                      <span key={tag} className="font-mono-tech text-[11px] px-2.5 py-0.5 rounded bg-[#EEE8DE] text-[#17130F] border border-[#17130F]/10">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Dossier Content Body */}
-                <div className="p-6 sm:p-8 space-y-6">
-                  
-                  {/* Short Overview */}
-                  <p className="text-base text-[#1B140E]/90 leading-relaxed max-w-4xl">
+                <div className="space-y-2">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#17130F]">
+                    {project.title}
+                  </h3>
+                  <p className="font-heading text-sm font-semibold text-[#D92D20]">
+                    {project.subtitle}
+                  </p>
+                  <p className="text-base text-[#6C645C] max-w-3xl leading-relaxed pt-1">
                     {project.description}
                   </p>
+                </div>
 
-                  {/* Interactive Signal Flow Schematic SVG Diagram */}
-                  <div className="p-5 bg-[#FAF8F4] rounded-lg border border-[#1B140E]/15 space-y-3">
-                    <div className="font-mono-tech text-xs text-[#6C645C] uppercase font-bold flex items-center justify-between">
-                      <span>SYSTEM SCHEMATIC ARCHITECTURE</span>
-                      <span className="text-[#E53935] text-[10px]">LIVE SIGNAL FLOW</span>
-                    </div>
-
-                    {/* Horizontal Signal Nodes Flow */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-2">
-                      {project.flowNodes.map((node, nIdx) => (
-                        <div key={node.id} className="relative">
-                          <div className="bg-[#F2EDE5] p-3 rounded border border-[#1B140E]/15 space-y-1 hover:border-[#1B140E] transition-colors">
-                            <div className="font-mono-tech text-[9px] text-[#6C645C] uppercase font-bold">
-                              NODE 0{nIdx + 1} // {node.type}
-                            </div>
-                            <div className="font-heading text-xs font-bold text-[#1B140E]">
-                              {node.label}
-                            </div>
-                            {node.sublabel && (
-                              <div className="font-mono-tech text-[10px] text-[#E53935] font-semibold">
-                                {node.sublabel}
-                              </div>
-                            )}
-                          </div>
-                          {nIdx < project.flowNodes.length - 1 && (
-                            <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 font-bold text-[#E53935]">
-                              ►
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Expanded Technical Dossier Content */}
-                  {isExpanded && (
-                    <div className="pt-6 border-t border-[#1B140E]/15 space-y-6 animate-in fade-in duration-300">
-                      
-                      {/* Deep Description */}
-                      <div className="space-y-2">
-                        <h4 className="font-mono-tech text-xs text-[#1B140E] uppercase font-bold tracking-wider">
-                          FULL SYSTEM WORKING & SPECIFICATIONS
-                        </h4>
-                        <p className="text-sm text-[#1B140E]/85 leading-relaxed bg-[#FAF8F4] p-4 rounded border border-[#1B140E]/10">
-                          {project.fullDetails}
-                        </p>
-                      </div>
-
-                      {/* Achievements if any */}
-                      {project.achievements && project.achievements.length > 0 && (
-                        <div className="space-y-2">
-                          <h4 className="font-mono-tech text-xs text-[#E53935] uppercase font-bold tracking-wider flex items-center gap-1.5">
-                            <Award className="w-4 h-4" /> RECOGNITIONS & PUBLICATIONS
-                          </h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            {project.achievements.map((ach, aIdx) => (
-                              <div key={aIdx} className="flex items-center gap-2 p-2.5 bg-[#FAF8F4] rounded border border-[#2E9B59]/30 text-xs text-[#1B140E] font-medium">
-                                <CheckCircle2 className="w-4 h-4 text-[#2E9B59] shrink-0" />
-                                <span>{ach}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Technologies Stack Tags */}
-                      <div className="space-y-2">
-                        <h4 className="font-mono-tech text-xs text-[#1B140E] uppercase font-bold tracking-wider">
-                          TECHNOLOGY STACK & INTEGRATED HARDWARE
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map(tech => (
-                            <span 
-                              key={tech} 
-                              className="font-mono-tech text-xs px-2.5 py-1 rounded bg-[#FAF8F4] border border-[#1B140E]/20 text-[#1B140E] font-semibold"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                    </div>
-                  )}
-
+                <div className="pt-2 flex items-center justify-between">
+                  <button
+                    onClick={() => setActiveModalProject(project)}
+                    className="px-6 py-3 rounded-lg bg-[#17130F] text-white font-mono-tech text-xs font-bold uppercase tracking-wider hover:bg-[#D92D20] transition-colors flex items-center gap-2 cursor-pointer group"
+                  >
+                    <span>VIEW PROJECT</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </div>
               </div>
             );
@@ -202,6 +122,108 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ activeSignal }
         </div>
 
       </div>
+
+      {/* Framer Motion Full-Screen Slide Panel (RIGHT -> LEFT) */}
+      <AnimatePresence>
+        {activeModalProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-[#17130F]/60 backdrop-blur-xs flex justify-end"
+          >
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#F7F3EC] w-full max-w-3xl h-full overflow-y-auto border-l-2 border-[#17130F] p-6 sm:p-12 space-y-8 shadow-2xl relative"
+            >
+              {/* Back Button */}
+              <button
+                onClick={() => setActiveModalProject(null)}
+                className="inline-flex items-center gap-2 font-mono-tech text-xs font-bold text-[#17130F] bg-[#EEE8DE] px-4 py-2 rounded-md hover:bg-[#D92D20] hover:text-white transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+                <span>← BACK TO PROJECTS</span>
+              </button>
+
+              {/* Title Header */}
+              <div className="space-y-2 border-b border-[#17130F]/15 pb-6">
+                <div className="font-mono-tech text-xs font-bold text-[#D92D20]">
+                  {activeModalProject.number}
+                </div>
+                <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-[#17130F]">
+                  {activeModalProject.title}
+                </h2>
+                <div className="font-heading text-base font-bold text-[#6C645C]">
+                  {activeModalProject.subtitle}
+                </div>
+              </div>
+
+              {/* Overview */}
+              <div className="space-y-2">
+                <h4 className="font-mono-tech text-xs font-bold text-[#17130F] uppercase">OVERVIEW</h4>
+                <p className="text-base text-[#17130F]/90 leading-relaxed bg-[#EEE8DE]/60 p-4 rounded-lg border border-[#17130F]/10">
+                  {activeModalProject.description}
+                </p>
+              </div>
+
+              {/* My Role */}
+              <div className="space-y-2">
+                <h4 className="font-mono-tech text-xs font-bold text-[#D92D20] uppercase">MY ROLE</h4>
+                <p className="text-sm text-[#6C645C] leading-relaxed">
+                  System Architect, Hardware Integration & Software Developer. Designed end-to-end telemetry and physical operational workflows.
+                </p>
+              </div>
+
+              {/* What I Built */}
+              <div className="space-y-2">
+                <h4 className="font-mono-tech text-xs font-bold text-[#17130F] uppercase">WHAT I BUILT</h4>
+                <p className="text-sm text-[#17130F]/90 leading-relaxed">
+                  {activeModalProject.fullDetails}
+                </p>
+              </div>
+
+              {/* Technologies */}
+              <div className="space-y-3">
+                <h4 className="font-mono-tech text-xs font-bold text-[#17130F] uppercase">TECHNOLOGIES</h4>
+                <div className="flex flex-wrap gap-2">
+                  {activeModalProject.technologies.map(tech => (
+                    <span 
+                      key={tech}
+                      className="font-mono-tech text-xs px-3 py-1 rounded bg-[#EEE8DE] text-[#17130F] border border-[#17130F]/15 font-semibold"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Achievements if any */}
+              {activeModalProject.achievements && activeModalProject.achievements.length > 0 && (
+                <div className="space-y-3 pt-4 border-t border-[#17130F]/15">
+                  <h4 className="font-mono-tech text-xs font-bold text-[#278B57] uppercase flex items-center gap-1.5">
+                    <Award className="w-4 h-4" /> RECOGNITION & ACHIEVEMENTS
+                  </h4>
+                  <div className="space-y-2">
+                    {activeModalProject.achievements.map((ach, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs font-medium text-[#17130F] bg-[#EEE8DE]/40 p-2.5 rounded border border-[#278B57]/30">
+                        <CheckCircle2 className="w-4 h-4 text-[#278B57] shrink-0 mt-0.5" />
+                        <span>{ach}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </section>
   );
 };
+

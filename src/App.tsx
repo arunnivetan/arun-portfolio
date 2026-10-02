@@ -5,7 +5,6 @@ import { AboutSection } from './components/AboutSection';
 import { EngineeringProcess } from './components/EngineeringProcess';
 import { ProjectsSection } from './components/ProjectsSection';
 import { IndustrialExposure } from './components/IndustrialExposure';
-import { EngineeringAnalysis } from './components/EngineeringAnalysis';
 import { SkillSystem } from './components/SkillSystem';
 import { EngineeringJourney } from './components/EngineeringJourney';
 import { AchievementsSection } from './components/AchievementsSection';
@@ -43,15 +42,12 @@ export function App() {
         <EngineeringProcess />
 
         {/* Section 03: Projects Dossiers */}
-        <ProjectsSection activeSignal={activeSignal} />
+        <ProjectsSection />
 
         {/* Section 04: Industrial & Internships Exposure */}
         <IndustrialExposure />
 
-        {/* Section 05: ETAP Power System Analysis */}
-        <EngineeringAnalysis />
-
-        {/* Section 06: Skill Dashboard */}
+        {/* Section 05: Skill Dashboard */}
         <SkillSystem />
 
         {/* Section 08: Engineering Journey Timeline */}
