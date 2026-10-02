@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                   <img
                     src="/assets/sld_etap_110kv.png"
                     alt="SLD 01 - 110kV Distribution System"
-                    className="w-full h-full object-cover object-left opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all"
+                    className="w-full h-full object-contain p-0.5 opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all"
                   />
                   <div className="absolute inset-0 bg-[#17130F]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-mono-tech text-[10px] font-bold text-white uppercase tracking-wider">
                     Click to View SLD
@@ -360,10 +360,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 bg-[#EEE8DE] border-t border-[#17130F]/15 flex justify-end">
+            <div className="p-4 bg-[#EEE8DE] border-t border-[#17130F]/15 flex items-center justify-between font-mono-tech text-xs">
+              <a
+                href={selectedSldModal.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#17130F] text-white rounded font-bold hover:bg-[#D92D20] transition-colors flex items-center gap-2 cursor-pointer"
+              >
+                <span>OPEN FULL DIAGRAM</span>
+              </a>
+
               <button
                 onClick={() => setSelectedSldModal(null)}
-                className="px-5 py-2 bg-[#17130F] text-white font-mono-tech text-xs font-bold rounded hover:bg-[#D92D20] transition-colors cursor-pointer"
+                className="px-5 py-2 bg-[#EEE8DE] text-[#17130F] border border-[#17130F]/20 font-bold rounded hover:bg-[#17130F]/10 transition-colors cursor-pointer"
               >
                 CLOSE SLD VIEWER
               </button>
